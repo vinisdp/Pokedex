@@ -122,6 +122,7 @@
     margin: .25rem 0rem;
     font-size: 1rem;
     border-radius: 1rem;
+    box-shadow: 0 5px 15px rgb(73, 73, 73);
     text-align: center;
     filter:brightness(1.1);
 }

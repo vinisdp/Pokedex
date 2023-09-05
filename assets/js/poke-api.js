@@ -1,20 +1,31 @@
 
 const pokeApi = {};
 
-function convertPokeApiDetailToPokemon(pokeDetail){
-    const pokemon = new Pokemon();
-    pokemon.name = pokeDetail.name;
-    pokemon.id = pokeDetail.id;
+function convertPokeApiDetailToPokemon(pokeDetail) {
+    const pokemon = new Pokemon()
+    pokemon.name = pokeDetail.name
+    pokemon.id = pokeDetail.id
+    pokemon.photo = pokeDetail.sprites.other["official-artwork"].front_default
 
-    const types = pokeDetail.types.map((typeSlot) => typeSlot.type.name);
+    pokemon.height = pokeDetail.height;
+    pokemon.weight = pokeDetail.weight;
+
+    const types = pokeDetail.types.map((typeSlot) => typeSlot.type.name)
     const [type] = types
 
-    pokemon.types = types;
-    pokemon.type = type;
-    pokemon.photo = pokeDetail.sprites.other.dream_world.front_default;
+    pokemon.types = types
+    pokemon.type = type
 
-    return pokemon;
+    const stats = pokeDetail.stats.map((statSlot) => `${statSlot.stat.name.replace('-',' ')}: ${statSlot.base_stat}`)
+
+    stats.push(`Height: ${pokeDetail.height}`)
+    stats.push(`Weight: ${pokeDetail.weight}`)
+
+    pokemon.stats = stats;
+
+    return pokemon
 }
+
 
 pokeApi.getPokemonDetails = (pokemon) =>{
     return fetch(pokemon.url)
