@@ -1,6 +1,17 @@
+const pokemonOl = document.getElementById('pokemonList');
+const loadMoreButton = document.getElementById('loadMoreButton');
+const limit = 5;
+let offset = 0;
 
-function convertPokemonToHTML(pokemon) {
-    return `<li class="pokemon ${pokemon.type}">
+
+
+
+function loadPokemonItems(offset, limit){
+
+    pokeApi.getPokemons(offset, limit)
+    .then((pokemons = []) =>  {
+        const newHTML = pokemons.map((pokemon) => 
+            `<li class="pokemon ${pokemon.type}">
                 <span class="number">#${pokemon.id}</span>
                 <span class="name">${pokemon.name}</span>
 
@@ -13,10 +24,15 @@ function convertPokemonToHTML(pokemon) {
                 </div>
 
             </li>`
-}
-const pokemonOl = document.getElementById('pokemonList');
-pokeApi.getPokemons()
-    .then((pokemonList = []) =>  {
-        pokemonOl.innerHTML += pokemonList.map(convertPokemonToHTML).join('')
+        ).join('');
+        pokemonOl.innerHTML += newHTML;
     })
     .catch((err) => console.error(err));
+}
+
+loadPokemonItems(offset, limit)
+
+loadMoreButton.addEventListener('click', () => {
+    offset += limit;
+    loadPokemonItems(offset, limit);
+})
