@@ -32,7 +32,31 @@ function convertPokemonToHTML(pokemon) {
 
             </li>`
 }
+
+
 const pokemonOl = document.getElementById('pokemonList');
+
+function loadPokemonItens(offset, limit) {
+    pokeApi.getPokemons(offset, limit)
+        .then((pokemons = []) => {
+            pokemonList.innerHTML += pokemons.map(convertPokemonToHTML).join('')
+        })
+}
+
+
+loadMoreButton.addEventListener('click', () => {
+    offset += limit;
+
+    const qtdRecordNextPage = offset + limit;
+
+    if (qtdRecordNextPage >= maxRecords) {
+        const newLimit =  maxRecords - offset
+        loadPokemonItens(offset, newLimit)
+        loadMoreButton.parentElement.removeChild(loadMoreButton);
+    } else {
+        loadPokemonItens(offset, limit);
+    }    
+})
 pokeApi.getPokemons()
     .then((pokemonList = []) =>  {
         pokemonOl.innerHTML += pokemonList.map(convertPokemonToHTML).join('')
