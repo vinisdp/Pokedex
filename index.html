@@ -20,25 +20,25 @@
 </head>
 
 <body>
-    <span class="overlay" onclick="closeOverlay()"></span>
+    <span class="overlay" id="overlay" onclick="closeOverlay()"></span>
     <section class="content">
         <h1>Pokedex</h1>
 
         <div id="pokeInfo">
             <button id="closeButton">X</button>
-            <h2 class="pokeInfoNumber"></h2>
-            <h2 class="pokeInfoName"></h2>
-            <ol class="pokeInfoTypes">
+            <h2 class="pokeInfoNumber" id="pokeNumber"></h2>
+            <h2 class="pokeInfoName" id="pokeName"></h2>
+            <ol class="pokeInfoTypes" id="pokeTypes">
 
             </ol>
-            <img class="pokeInfoImg"
+            <img class="pokeInfoImg" id="pokeImg"
                 src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png"
                 alt="">
             <div id="div-diagonal">
                 <h3>Stats:</h3>
             </div>
 
-            <ul class="pokeInfoStats">
+            <ul class="pokeInfoStats" id="pokeStatus">
 
             </ul>
         </div>

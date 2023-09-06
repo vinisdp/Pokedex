@@ -2,17 +2,18 @@ const pokemonList = document.getElementById('pokemonList');
 const loadMoreButton = document.getElementById('loadMoreButton');
 const closeButton = document.getElementById('closeButton');
 const divStats= document.getElementById("div-diagonal");
+const pokeInfo = document.getElementById("pokeInfo");
+const pokeNumber = document.getElementById("pokeNumber");
+const pokeName = document.getElementById("pokeName");
+const pokeTypes = document.getElementById("pokeTypes");
+const pokeImg = document.getElementById("pokeImg");
+const pokeStats = document.getElementById("pokeStats");
 const limit = 5;
 let offset = 0;
 let pokeType;
-const pokeInfo = document.getElementById("pokeInfo");
-const pokeInfoNumber = document.querySelector(".pokeInfoNumber");
-const pokeInfoName = document.querySelector(".pokeInfoName");
-const pokeInfoTypes = document.querySelector(".pokeInfoTypes");
-const pokeInfoImg = document.querySelector(".pokeInfoImg");
-const pokeInfoStats = document.querySelector(".pokeInfoStats");
 
-const overlay = document.querySelector(".overlay");
+
+const overlay = document.getElementById("overlay");
 
 
 const maxRecords = 151
@@ -76,9 +77,9 @@ function hidePokeInfo(){
     pokeInfo.style.pointerEvents = 'none';
     overlay.style.opacity = 0;
     overlay.style.pointerEvents = 'none';
-    pokeInfoName.classList.remove(pokeType);
-    pokeInfoNumber.classList.remove(pokeType);
-    pokeInfoStats.classList.remove(pokeType);
+    pokeName.classList.remove(pokeType);
+    pokeNumber.classList.remove(pokeType);
+    pokeStats.classList.remove(pokeType);
     divStats.classList.remove(pokeType);
     // document.body.removeAttribute('style');
 }
@@ -97,29 +98,29 @@ function pokeInfoUpdate(pokemon) {
     
     pokemon = pokemon[0];
 
-    pokeInfoNumber.textContent = `#${pokemon.id}`
-    pokeInfoName.textContent = `${pokemon.name}`
-    pokeInfoImg.src = pokemon.photo
+    pokeNumber.textContent = `#${pokemon.id}`
+    pokeName.textContent = `${pokemon.name}`
+    pokeImg.src = pokemon.photo
     pokeType = pokemon.type;
-    pokeInfoName.classList.add(pokeType);
-    pokeInfoNumber.classList.add(pokeType);
-    pokeInfoStats.classList.add(pokeType);
+    pokeName.classList.add(pokeType);
+    pokeNumber.classList.add(pokeType);
+    pokeStats.classList.add(pokeType);
     divStats.classList.add(pokeType);
-    pokeInfoTypes.innerHTML = '';
-    pokeInfoStats.innerHTML = '';
+    pokeTypes.innerHTML = '';
+    pokeStats.innerHTML = '';
 
     pokemon.types.map((type) => {
         const li = document.createElement("li")
         li.classList.add('type')
         li.classList.add(type)
         li.appendChild(document.createTextNode(type))
-        pokeInfoTypes.appendChild(li);
+        pokeTypes.appendChild(li);
     })
 
     pokemon.stats.map((stat) => {
         const li = document.createElement("li")
         li.appendChild(document.createTextNode(stat))
-        pokeInfoStats.appendChild(li);
+        pokeStats.appendChild(li);
     })
 
 

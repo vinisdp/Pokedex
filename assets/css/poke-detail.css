@@ -56,6 +56,10 @@
 #pokeInfo img {
     width: 200px;
     height: auto;
+    box-shadow: 0 5px 15px rgb(0, 0, 0);
+    border-radius:1rem;
+    background: #FFFFFF url("/assets/imagens/floresta.jpg") no-repeat center;
+    background-size: cover;
 }
 
 #pokeInfo .pokeInfoStats {
