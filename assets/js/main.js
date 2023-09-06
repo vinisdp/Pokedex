@@ -8,13 +8,10 @@ const pokeName = document.getElementById("pokeName");
 const pokeTypes = document.getElementById("pokeTypes");
 const pokeImg = document.getElementById("pokeImg");
 const pokeStats = document.getElementById("pokeStats");
+const overlay = document.getElementById("overlay");
 const limit = 5;
 let offset = 0;
 let pokeType;
-
-
-const overlay = document.getElementById("overlay");
-
 
 const maxRecords = 151
 
