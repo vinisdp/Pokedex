@@ -9,7 +9,13 @@ const pokeImg = document.getElementById("pokeImg");
 const pokeStatus = document.getElementById("pokeStatus");
 const overlay = document.getElementById("overlay");
 const pokemonOl = document.getElementById('pokemonList');
-VanillaTilt.init(pokeInfo);
+VanillaTilt.init(pokeInfo,{
+    max: 25,
+    speed:400,
+    glare: true,
+    "max-glare": .25,
+}
+ );
 const limit = 100;
 let offset = 0;
 let pokeType;
