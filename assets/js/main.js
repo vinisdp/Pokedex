@@ -16,6 +16,7 @@ VanillaTilt.init(pokeInfo,{
     "max-glare": .25,
 }
  );
+
 const limit = 100;
 let offset = 0;
 let pokeType;
@@ -23,7 +24,7 @@ let pokeType;
 const maxRecords = 891;
 
 function convertPokemonToHTML(pokemon) {
-    return `<li class="pokemon ${pokemon.type}" onclick="getPokemon(${pokemon.id})">
+    return `<li class="pokemon ${pokemon.type}" id="pokemon" onclick="getPokemon(${pokemon.id})">
                 <span class="number">#${pokemon.id}</span>
                 <span class="name">${pokemon.name}</span>
 
@@ -34,7 +35,6 @@ function convertPokemonToHTML(pokemon) {
                     <img src=${pokemon.photo}
                         alt=${pokemon.name}>
                 </div>
-
             </li>`
 }
 
