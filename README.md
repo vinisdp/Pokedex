@@ -16,3 +16,12 @@ Este projeto foi criado para testar os conhecimentos adquiridos durante um curso
 
 Este componente é responsável por exibir informações detalhadas de um Pokémon utilizando a PokeAPI.
 
+
+## Como Executar
+
+Para executar o projeto localmente:
+
+1. Clone este repositório.
+2. Abra o arquivo `index.html` no seu navegador.
+
+Isso irá carregar a Pokedex e permitirá interagir com os Pokémon listados.
